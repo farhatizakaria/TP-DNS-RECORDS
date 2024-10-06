@@ -1,0 +1,38 @@
+$TTL 1D
+@       IN SOA  dns1.societe-a-ma. root.societe-a.ma. (
+                                        5       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+; DNS Servers Records
+                        IN      NS      dns1.societe-a.ma.
+                        IN      NS      server2-a.societe-a.ma.
+                        IN      NS      server3-a.societe-a.ma.
+; Canonical Names Records
+server1-a.societe-a.ma. IN      CNAME   dns1.societe-a.ma.
+dns2.societe-a.ma.      IN      CNAME   server2-a.societe-a.ma.
+dns3.societe-a.ma.      IN      CNAME   server3-a.societe-a.ma.
+
+; Web Records
+www                     IN      CNAME   dns1.societe-a.ma.
+
+; IP Records
+dns1.societe-a.ma.      IN      A       172.16.100.1
+server2-a.societe-a.ma. IN      A       172.16.100.2
+server3-a.societe-a.ma. IN      A       172.16.100.3
+
+; Mail Records
+                        IN      MX      10 mail.societe-a.ma
+mail                    IN      A       172.16.100.2
+
+; Other Services
+ftp.societe-a.ma.       IN      A       172.16.100.3
+ldap.societe-a.ma.      IN      A       172.16.100.3
+dhcp.societe-a.ma.      IN      A       172.16.100.2
+
+_ftp._tcp.societe-a.ma.  IN SRV  10  0  21 ftp.societe-a.ma.
+_ldap._tcp.societe-a.ma. IN SRV  10  0  389 ldap.societe-a.ma.
+_dhcp._udp.societe-a.ma.  IN SRV  10  0  67 dhcp.societe-a.ma.
+
+; La priorite c'est 10, pour le poids c'est 0 (pour Load Balancing)

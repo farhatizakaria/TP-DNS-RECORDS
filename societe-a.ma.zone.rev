@@ -1,0 +1,11 @@
+$TTL 86400
+@       IN SOA  dns1.societe-a-ma. root.societe-a.ma. (
+                                        5       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        IN      NS      dns1.societe-a.ma.
+1       IN      PTR     dns1.societe-a.ma.
+2       IN      PTR     server1-a.societe-a.ma.
+3       IN      PTR     server2-a.societe-a.ma.
